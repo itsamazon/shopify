@@ -23,17 +23,14 @@ const PromptPage = () => {
     })
 
     useEffect(() => {
-        // if no details exist --- on first load
-        if (!details.length) {
-            setPageStatus("loading");
-            let storedetails = JSON.parse(localStorage.getItem("detail")) || [];
-            setDetail(storedetails);
-            setPageStatus("idle");
-        }
-    }, [details]);
+        setPageStatus("loading");
+        let storedetails = JSON.parse(localStorage.getItem("detail")) || [];
+        setDetail(storedetails);
+        setPageStatus("idle");
+    }, []);
 
     useEffect(() => {
-        if (details.length) localStorage.setItem('detail', JSON.stringify(details));
+        if (details.length > 0) localStorage.setItem('detail', JSON.stringify(details));
         setPagesNum(Math.floor(details.length / limit))
     }, [details]);
 
@@ -120,7 +117,7 @@ const PromptPage = () => {
             </div>
 
             <section>
-                {dataChunk?.length ?
+                {dataChunk?.length > 0 ?
                     dataChunk.map((single, idx) =>
                         <article className={style.response} key={idx}>
                             <div>
@@ -132,10 +129,10 @@ const PromptPage = () => {
                                 <p> {single.response}</p>
                             </div>
                         </article>
-                    ) : !details.length ?
-                        <p>
-                            No response yet!!
-                        </p> : <div className={style.waiting}><Loaders classname={style.marginauto} /></div>
+                    ) :
+                    <p>
+                        No response yet!!
+                    </p>
                 }
             </section>
         </div>
