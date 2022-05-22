@@ -1,0 +1,19 @@
+.button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button button{
+    padding: .5rem 1rem;
+    background: var(  --accent-main);
+    color: white;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin-top: .5rem;
+    outline: none;
+}
+
+.button button:disabled{
+    background:  var(  --primary-main);
+}

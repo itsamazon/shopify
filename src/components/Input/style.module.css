@@ -1,0 +1,22 @@
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer label{
+    font-weight: 500;
+}
+
+.inputContainer textarea {
+    height: 25vh;
+    margin: .5rem 0 0 0;
+    border: 1px solid var(--primary-main);
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    outline: none;
+    padding: .5rem 1rem;
+    color: var(--text-subdued);
+    font-weight: 600;
+    resize: none;
+}
+
