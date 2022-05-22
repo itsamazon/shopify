@@ -115,7 +115,7 @@ const PromptPage = () => {
                 {pageStatus === 'loading' && <Loaders />}
                 <div className={style.pagination}>
                     <button type='button' onClick={() => page > 1 && setPage(page - 1)} disabled={page < 2}>&lt;</button>
-                    <button type='button' onClick={() => page < pagesNum && setPage(page + 1)} disabled={page === pagesNum}>&gt;</button>
+                    <button type='button' onClick={() => page < pagesNum && setPage(page + 1)} disabled={page === pagesNum || dataChunk.length < limit}>&gt;</button>
                 </div>
             </div>
 
